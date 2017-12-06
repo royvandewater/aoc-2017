@@ -16,4 +16,4 @@ const parseInput = flow(splitInputIntoRows, map(splitRowIntoColumns))
 const minMaxDifference = row => max(row) - min(row)
 const checkSum = sumBy(minMaxDifference)
 
-console.log('sum', checkSum(parseInput(INPUT)))
+console.log('sum', checkSum(parseInput(INPUT))) // eslint-disable-line no-console
