@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 
-const groupBy = require('lodash/fp/groupBy')
+const offset = require('./lib/offset')
+const ringNumber = require('./lib/ringNumber')
 
-let index = 0
-const row = 0
-let column = 0
-const memory = []
+const input = 368078
 
-while (column < 2) {
-  memory[index] = { row, column, value: index + 1 }
-  column += 1
-  index += 1
-}
+const ring = ringNumber(input)
+const bottomRightValue = ((ring * 2) + 1) ** 2 // prettier-ignore
+const difference = bottomRightValue - input
 
-const rows = groupBy('row', memory)
-console.log(rows)
+console.log(JSON.stringify({
+  input,
+  ring,
+  bottomRightValue,
+  difference,
+}))
+
+// ring: 605
